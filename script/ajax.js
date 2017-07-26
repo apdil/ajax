@@ -1,16 +1,34 @@
 
-function doAjax(url, method, async, args, callback){
+function doAjax(options) {
+
+    let defaults = {
+        url: '', method: 'GET', async: true, args: '',
+        callback: function () { }, callbackError: function () { }
+    };
+
+    assignArgs(options, defaults);
+
     let ajax = new XMLHttpRequest();
 
     ajax.onreadystatechange = function () {
         if (ajax.status === 200 || ajax.status === 304) {
             if (ajax.readyState === 4) {
-                console.log(ajax.response);
-                document.querySelector('#para').textContent = ajax.response;
+                defaults.callback(ajax.response);
+            } else {
+                defaults.callbackError();
             }
         }
     };
 
-    ajax.open('GET', 'text.txt', true);
-    ajax.send();
+    ajax.open(defaults.method, defaults.url, defaults.async);
+    ajax.send(defaults.args);
+}
+
+Object.hasOwn
+function assignArgs(source, target){
+    for(let clef in source){
+        if(target.hasOwnProperty(clef)) {
+            target[clef] = source[clef];
+        }
+    }
 }

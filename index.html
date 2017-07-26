@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src='script/ajax.js'></script>
     <title>Ajax</title>
 </head>
+
 <body>
     <button id='butt' name='butt'>Lancer</button>
     <p id='para'></p>
     <button id='butt2' name='butt'>Lancer</button>
     <p id='para2'></p>
-        <script>
-
-        document.querySelector('#butt').addEventListener('click', function(){
-
-            
-
+    <script>
+        document.querySelector('#butt').addEventListener('click', function () {
+            doAjax({
+                url:'text.txt',
+            });
         });
-
     </script>
 </body>
+
 </html>

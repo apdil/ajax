@@ -1,0 +1,5 @@
+{
+    "attribute" : 10,
+    "attribute2" : "texte",
+    "attribute3" : [ true, false, true]
+}

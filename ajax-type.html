@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src='script/ajax.js'></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="contenu"></div>
+    <script>
+        doAjax({
+            url:'snippet.html',
+            callback(reponse){
+                let parser = new DOMParser();
+                let doc = parser.parseFromString(reponse, 'text/html');
+                // let section = doc.querySelector('section');
+                // document.querySelector('#contenu').appendChild(section);
+            }
+        });
+
+        doAjax({
+            url:'data.json',
+            callback: function(reponse){
+                let object = JSON.parse(reponse);
+                
+            }
+        });
+    </script>
+</body>
+</html>
